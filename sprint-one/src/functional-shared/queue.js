@@ -28,8 +28,6 @@ var queueMethods = {
   size: function() {
     return Object.keys(this.storage).length;
   },
-
-  //storage: {}
 };
 
 

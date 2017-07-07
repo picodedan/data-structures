@@ -2,16 +2,12 @@ var Queue = function() {
   var instanceObj = {};
   instanceObj.storage = {};
   _.extend(instanceObj, queueMethods);
-  
   return instanceObj;
 };
 
 var queueMethods = {
 
-  enqueue: function(value) { 
-    
-    this.storage[this.size() + 1] = value; 
-  },
+  enqueue: function(value) { this.storage[this.size() + 1] = value; },
 
   dequeue: function() {
 
@@ -28,8 +24,8 @@ var queueMethods = {
   size: function() {
     return Object.keys(this.storage).length;
   },
+  
 };
-
 
 
 

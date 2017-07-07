@@ -38,18 +38,18 @@ var LinkedList = function() {
       // if true result = true
       // rreturn result
       //else start again at list.head.next
-    //var result;
+    var result = false;
     var isTarger = function(node) {
       if (node.value === target) {
-        return true;
+        result = true;
       } 
       if (node.next) {
         isTarger(node.next);
       } 
-      return false; 
     };
     
-    return isTarger(list.head);
+    isTarger(list.head);
+    return result;
   };
 
   return list;
@@ -66,4 +66,8 @@ var Node = function(value) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+    .addToTail: constant O(1);
+    .removeHead: constant O(1);
+    .contains: linear O(n);
+
  */

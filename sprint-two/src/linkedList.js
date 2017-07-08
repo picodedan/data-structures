@@ -8,7 +8,7 @@ var LinkedList = function() {
     // call node(value)
     //update list.tail with reference to new tail
     //update node.next on the previous tail to reference the new tail
-    var value = Node(value);
+    var value = LinkNode(value);
     if (list.head === null) {
       list.head = value;
     }
@@ -55,7 +55,7 @@ var LinkedList = function() {
   return list;
 };
 
-var Node = function(value) {
+var LinkNode = function(value) {
   var node = {};
 
   node.value = value;

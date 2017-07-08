@@ -36,14 +36,37 @@ BinarySearchTree.prototype.insert = function(value) {
     }
   }
 };
+
 // .contains() method, which accepts a value and returns a boolean reflecting whether or not the value is contained in the tree.
 BinarySearchTree.prototype.contains = function(value) {
-  //
+  var result = false;
+  if (value === this.value) {
+    result = true;
+  } else if (value > this.value) {
+    result = this.right ? this.right.contains(value) : false;
+  } else if (value < this.value) {
+    result = this.left ? this.left.contains(value) : false;
+  }
+  return result;
 };
+
 // .depthFirstLog() method, which accepts a callback and executes it on every value contained in the tree.
 BinarySearchTree.prototype.depthFirstLog = function(value) {
   //
 };
+
+// helper function
+/*
+var binaryRecursion = function(value, operator) {
+  if (value > this.value) {
+    if (!this.right) {
+      return operator(value);
+    } else {
+      binaryRecursion()
+    } 
+  } 
+};
+*/
 
 
 /*

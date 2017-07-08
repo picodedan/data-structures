@@ -1,12 +1,9 @@
 var BinarySearchTree = function(value) {
   this.value = value;
-  // depth => track number of steps from center
-  this._depth;
-  // left property  => specific position
+  this._depth; //future feature to struture a re-balance/re-sort functionality
   //.left property, a binary search tree (BST) where all values are lower than than it the current value.
   this.left;
   // .right property, a BST where all values are higher than than it the current value.
-  // right property => specific position
   this.right;
 };
 
@@ -51,26 +48,25 @@ BinarySearchTree.prototype.contains = function(value) {
 };
 
 // .depthFirstLog() method, which accepts a callback and executes it on every value contained in the tree.
-BinarySearchTree.prototype.depthFirstLog = function(value) {
-  //
+BinarySearchTree.prototype.depthFirstLog = function(cb) {
+  // give cb each objects value 
+  cb(this.value);
+  // at each element provide cb value
+  if (this.right) {
+    this.right.depthFirstLog(cb);
+  }
+  if (this.left) {
+    this.left.depthFirstLog(cb);
+  }
 };
 
-// helper function
-/*
-var binaryRecursion = function(value, operator) {
-  if (value > this.value) {
-    if (!this.right) {
-      return operator(value);
-    } else {
-      binaryRecursion()
-    } 
-  } 
-};
-*/
 
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ .insert: logarithmic O(log(n))
+ .contains: logarithmic O(log(n))
+ .depthFirstLog: logarithmic O(log(n))
  */
 
 

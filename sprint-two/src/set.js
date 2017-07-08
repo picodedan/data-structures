@@ -8,7 +8,9 @@ var setPrototype = {};
 
 setPrototype.add = function(item) {
   //takes any string and adds it to the set
-  this._storage.push(item);
+  if (!this.contains(item)) {
+    this._storage.push(item);
+  }
 };
 
 setPrototype.contains = function(item) {

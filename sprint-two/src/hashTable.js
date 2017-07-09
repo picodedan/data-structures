@@ -9,10 +9,24 @@ HashTable.prototype.insert = function(k, v) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   //get bucket at index
   var bucket = this._storage.get(index) || [];
-  //create tuple of k,v
   var tuple = [k, v];
-  //add  tuple to bucket
-  bucket.push(tuple);  
+  //create tuple of k,v
+  if (bucket.length > 0) {
+    //iterate through bucket 
+    for (var i = 0; i < bucket.length; i++) {
+    //if k already exist
+      if (bucket[i][0] === k) {
+      //change the value to v
+        bucket[i][1] = v;
+      } else {
+        //add  tuple to bucket
+        bucket.push(tuple);
+      }
+    }
+  } else { 
+    //add  tuple to bucket
+    bucket.push(tuple);
+  }  
   //set bucket in storage
   this._storage.set(index, bucket);
 };
